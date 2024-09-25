@@ -1,0 +1,5 @@
+1. Tạo project mới
+2. Tạo model
+3. Tạo Database - Seed Database - Tạo table
+4. Tạo Router - Controller
+5. Tạo view
