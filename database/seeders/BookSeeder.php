@@ -2,10 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Book;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Testing\Fakes\Fake;
+use Faker\Factory as Faker;
 
 class BookSeeder extends Seeder
 {
@@ -14,11 +17,14 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('books')->insert([
-            'bookTitle' => Str::random(10),
-            'bookAuthor' => Str::random(10),
-            'bookDescription' => Str::random(30),
-            'bookPrice' => rand(10, 40)
-        ]);
+        $faker = Faker::create();
+        for ($i = 0; $i < 50; $i++) {
+            Book::create([
+               'bookTitle' => $faker->name,
+               'bookAuthor' => $faker->name,
+               'bookDescription' => $faker->sentence,
+               'bookPrice' => rand(10, 40)
+            ]);
+        }
     }
 }

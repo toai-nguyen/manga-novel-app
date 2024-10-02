@@ -21,7 +21,8 @@ class BookController extends Controller
     //List all item
     public function index() {
         // $book  = new Book();
-        $books = Book::all();
+        $books = Book::query()->orderBy('created_at')
+        ->paginate(10);
         return view('book.index',compact('books'));
     }
     //List one (sort by id)
