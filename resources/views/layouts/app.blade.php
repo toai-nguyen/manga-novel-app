@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="../../css/table.css">
 </head>
 <body>
+    @include('partial.header')
     <div>
         @yield('content')
     </div>
+    @include('partial.footer')
 </body>
 </html>
